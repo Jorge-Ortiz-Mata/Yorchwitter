@@ -1,0 +1,38 @@
+<div>
+    <%= render 'shared/errors', obj: @user %>
+</div>
+<div class="formCreateProfile">
+    <%= form_with model: @user do |f| %>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <%= f.label 'First name: ' %>
+                <%= f.text_field :first_name , class:"form-control" %>
+            </div>
+            <div class="form-group col-md-6">
+                <%= f.label 'Last name: ' %>
+                <%= f.text_field :last_name, class:"form-control" %>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <%= f.label 'Genre (male o female): ' %>
+                <%= f.text_field :genre, class:"form-control" %>
+            </div>
+            <div class="form-group col-md-6">
+                <%= f.label 'Location: ' %>
+                <%= f.text_field :location, class:"form-control" %>
+            </div>
+            <div class="form-group col-md-4">
+                <%= f.label 'Date of birth: ' %>
+                <%= f.date_field :date_birth, class:"form-control" %>
+            </div>
+            <div class="form-group col-md-4">
+                <%= f.label 'Photo profile: ' %>
+                <%= f.file_field :avatar, class:"form-control" %>
+            </div>
+        </div>
+        <div>
+            <%= f.submit 'Create profile.', class: 'btn btn-success' %>
+        </div>
+    <% end %>
+</div>

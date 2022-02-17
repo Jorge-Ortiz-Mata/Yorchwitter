@@ -1,0 +1,25 @@
+<div>
+    <%= render 'shared/errors', obj: @account %>
+</div>
+<div>
+  <%= form_with model: @account do |form| %>
+      <div class="form-group">
+          <%= form.label "Email: " %>
+          <%= form.text_field :email, class:"form-control", placeholder: "smith@example.com" %>
+      </div>
+      <div class="form-group">
+          <%= form.label "Password: " %>
+          <span class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-300">Minimum 6 characters.</span>
+          <%= form.password_field :password, class:"form-control" %>
+      </div>
+      <div class="form-group">
+          <%= form.label "Password confirmation: " %>
+          <%= form.password_field :password_confirmation, class:"form-control" %>
+      </div>
+      <div>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <%= form.submit "Sign up", class:"btn btn-success" %>
+      </div>
+  <% end %>
+</div>
+<br>

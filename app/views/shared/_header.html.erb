@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <%= link_to 'Yorchwitter', root_path, class:"navbar-brand" %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+        <% if !(logged_in?) %>
+            <div class="m-1"><%= link_to 'Sign in', signin_path, class:"btn btn-light" %></div>
+            <div class="m-1"><%= link_to 'Create account', signup_path, class:"btn btn-light" %></div>
+        <% else %>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @ <%= @current_account.user.first_name %> <%= @current_account.user.last_name %>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Account</a>
+                    </div>
+                </li>
+            </ul>
+            <%= link_to 'Sign out', signout_path, method: :delete, class:"btn btn-danger" %>
+        <% end %>
+    </form>
+  </div>
+</nav>
