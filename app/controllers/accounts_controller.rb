@@ -32,7 +32,7 @@ class AccountsController < ApplicationController
   def destroy
     session[:user_id] = nil
     @account.destroy
-    redirect_to root_path, alert: 'Account deleted.'
+    redirect_to root_path, status: :see_other, alert: 'Account deleted.'
   end
 
   private 
