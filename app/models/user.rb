@@ -8,5 +8,5 @@ class User < ApplicationRecord
   validates :avatar, presence: true
   has_one_attached :avatar
   belongs_to :account
-  has_many :posts
+  has_many :posts, dependent: :destroy
 end

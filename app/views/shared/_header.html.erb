@@ -14,12 +14,10 @@
                     <li class="nav-item dropdown">
                         <% if @current_account.user %>
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            @ <%= @current_account.user.first_name %> <%= @current_account.user.last_name %>
+                            @<%= @current_account.user.first_name %> <%= @current_account.user.last_name %>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <%= link_to 'Profile', user_path(@current_account), class:"dropdown-item" %>
-                                <div class="dropdown-divider"></div>
-                                <%= link_to 'Account', account_path(@current_account), class:"dropdown-item" %>
+                                <%= link_to 'Profile settings', user_path(@current_account), class:"dropdown-item" %>
                             </div>
                         <% end %>
                     </li>

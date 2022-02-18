@@ -1,13 +1,30 @@
 <h1>This post</h1>
-<div>
-    Content: <%= @post.body %>
-    Author: @<%= @post.user.first_name %> <%= @post.user.last_name %>
-    <% for i in 0...@post.images.count %>
-        <%= image_tag @post.images[i] %>
-    <% end %>
-    <% if @current_account.user == @post.user %>
-        <%= link_to 'Edit post', edit_post_path(@post), class: "btn btn-success" %>
-        <%= link_to 'Delete post', post_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-    <% end %>
-<div>
+<div class="card text-white bg-dark mb-3" style="max-width: 40rem;">
+    <div class="card-header">
+        <div class="m-auto">
+            <% if @current_account.user == @post.user %>
+                <%= link_to 'Edit post', edit_post_path(@post), class: "btn btn-success" %>
+                <%= link_to 'Delete post', post_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+            <% end %>
+        </div>
+    </div>
+    <div class="card-body">
+        <small>
+            <p class="card-title">
+                <b>Created: </b>: <%= time_ago_in_words(@post.created_at) %> ago.<br>
+            </p>
+        </small>
+        <p class="card-text">
+            <b>Content: </b>: <%= @post.body %><br>
+        </p>
+        <p class="card-text">
+            <b>Author: </b>@<%= @post.user.first_name %> <%= @post.user.last_name %><br>
+        </p>
+        <div class="d-flex imagesDiv">
+            <% for i in 0...@post.images.count %>
+                <%= image_tag @post.images[i], class:"postImage" %>
+            <% end %>
+        </div>
+    </div>
+</div>
 <%= link_to 'Back', root_path, class:"btn btn-secondary" %>

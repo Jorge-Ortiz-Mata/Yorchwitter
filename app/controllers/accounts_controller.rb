@@ -8,9 +8,6 @@ class AccountsController < ApplicationController
     @account = Account.new
   end
 
-  def show
-  end
-
   def create
     @account = Account.new(account_params)
     if @account.save
@@ -26,7 +23,7 @@ class AccountsController < ApplicationController
 
   def update
     if @account.update(account_params)
-      redirect_to @account, notice: 'Account successfully updated.'
+      redirect_to user_path(@current_account), notice: 'Account successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
