@@ -1,2 +1,30 @@
 <h1>Homepage</h1>
-<%= link_to 'Create a post', new_post_path, class:'btn btn-success' %>
+<%= link_to 'Create a post', new_post_path, class:'btn btn-success' %><br>
+<h2>Posts.</h2>
+
+<% @posts.each do |post| %>
+    <br>
+    <div class="card text-white bg-dark mb-3" style="max-width: 40rem;">
+        <div class="card-header">
+            <div class="m-auto">
+                <%= link_to 'Show post', post_path(post), class: "btn btn-warning" %> <b>Author</b>: <%= post.user.first_name %> <%= post.user.last_name %>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                <b>Title</b>: <%= post.body %><br>
+            </p>
+            <small>
+                <p class="card-title">
+                    <b>Created</b>: <%= time_ago_in_words(post.created_at) %> ago.<br>
+                </p>
+            </small>
+        </div>
+        <div class="d-flex imagesDiv">
+            <% for i in 0...post.images.count %>
+                <%= image_tag post.images[i], class:"postImage" %>
+            <% end %>
+        </div>
+    </div>
+    <br>
+<% end %>

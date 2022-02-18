@@ -2,6 +2,7 @@ class AccountsController < ApplicationController
 
   before_action :find_account, except: [:new, :create, :index]
   before_action :require_account, except: [:new, :create]
+  before_action :account_belongs_to_current_account, only: [:edit, :update, :destroy]
 
   def new
     @account = Account.new
@@ -24,7 +25,6 @@ class AccountsController < ApplicationController
   end
 
   def update
-    @account = Account.find(params[:id])
     if @account.update(account_params)
       redirect_to @account, notice: 'Account successfully updated.'
     else

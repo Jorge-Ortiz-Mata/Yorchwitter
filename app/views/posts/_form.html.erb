@@ -1,11 +1,14 @@
+<div>
+    <%= render 'shared/errors', obj: @post %>
+</div>
 <%= form_with model: @post do |f| %>
     <div class="form-group">
         <%= f.label "Body: " %>
-        <%= f.rich_text_area :body, class:"form-control", placeholder: "smith@example.com" %>
+        <%= f.text_area :body, class:"form-control", placeholder: "smith@example.com" %>
     </div>
     <div class="form-group col-md-4">
         <%= f.label 'Images: ' %>
-        <%= f.file_field :image, multiple: true, class:"form-control" %>
+        <%= f.file_field :images, multiple: true, class:"form-control" %>
     </div>
     <div>
         <%= f.submit(@post.new_record? ? 'Create post.' : 'Update post.', class: 'btn btn-success') %>

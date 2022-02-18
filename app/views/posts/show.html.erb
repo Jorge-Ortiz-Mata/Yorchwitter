@@ -1,1 +1,13 @@
-<h1>Post</h1>
+<h1>This post</h1>
+<div>
+    Content: <%= @post.body %>
+    Author: @<%= @post.user.first_name %> <%= @post.user.last_name %>
+    <% for i in 0...@post.images.count %>
+        <%= image_tag @post.images[i] %>
+    <% end %>
+    <% if @current_account.user == @post.user %>
+        <%= link_to 'Edit post', edit_post_path(@post), class: "btn btn-success" %>
+        <%= link_to 'Delete post', post_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    <% end %>
+<div>
+<%= link_to 'Back', root_path, class:"btn btn-secondary" %>

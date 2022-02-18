@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   before_action :require_account
   before_action :find_user, only: [:show, :edit, :update]
+  before_action :user_belongs_to_current_account, only: [:edit, :update, :destroy]
 
   def new
     if !(current_account.user.present?)
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
     end
 
     def find_user
-      @user = User.find_by(params[:id])
+      @user = User.find(params[:id])
     end
 
 end

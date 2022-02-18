@@ -15,4 +15,22 @@ class ApplicationController < ActionController::Base
             redirect_to signin_path, alert: "You should login first."
         end
     end
+
+    def post_belongs_to_current_account
+        if current_account.user != @post.user
+            redirect_to root_path, alert: "This post doesn't belong to you."
+        end
+    end
+
+    def user_belongs_to_current_account
+        if current_account.user != @user
+            redirect_to root_path, alert: "This profile doesn't belong to you."
+        end
+    end
+
+    def account_belongs_to_current_account
+        if current_account != @account
+            redirect_to root_path, alert: "This account doesn't belong to you."
+        end
+    end
 end
