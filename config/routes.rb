@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'posts/new'
-  get 'posts/edit'
-  get 'posts/show'
 
   root 'pages#home'
 
@@ -15,5 +12,7 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy'
 
   resources :users
+
+  resources :posts
 
 end

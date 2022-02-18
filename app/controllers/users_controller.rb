@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :require_user
+  before_action :require_account
   before_action :find_user, only: [:show, :edit, :update]
 
   def new

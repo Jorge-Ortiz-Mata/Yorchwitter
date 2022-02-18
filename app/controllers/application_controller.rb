@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
         !!current_account
     end
 
-    def require_user
+    def require_account
         if !logged_in?
             redirect_to signin_path, alert: "You should login first."
         end

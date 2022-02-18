@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
+
   before_action :find_account, except: [:new, :create, :index]
-  before_action :require_user, except: [:new, :create]
+  before_action :require_account, except: [:new, :create]
 
   def new
     @account = Account.new
