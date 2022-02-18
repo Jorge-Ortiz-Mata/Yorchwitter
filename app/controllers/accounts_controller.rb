@@ -1,10 +1,12 @@
 class AccountsController < ApplicationController
-
-  before_action :find_account, only: [:edit, :update, :show, :destroy]
+  before_action :find_account, except: [:new, :create, :index]
   before_action :require_user, except: [:new, :create]
 
   def new
     @account = Account.new
+  end
+
+  def show
   end
 
   def create
@@ -20,13 +22,19 @@ class AccountsController < ApplicationController
   def edit
   end
 
-  def updated
+  def update
+    @account = Account.find(params[:id])
+    if @account.update(account_params)
+      redirect_to @account, notice: 'Account successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
     session[:user_id] = nil
     @account.destroy
-    redirect_to root_path, alert: 'Account delete.'
+    redirect_to root_path, alert: 'Account deleted.'
   end
 
   private 
@@ -36,6 +44,6 @@ class AccountsController < ApplicationController
     end
 
     def find_account
-      @account = Account.find_by(params[:id])
+      @account = Account.find(params[:id])
     end
 end

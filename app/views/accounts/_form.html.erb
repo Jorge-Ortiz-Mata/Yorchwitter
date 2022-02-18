@@ -18,7 +18,7 @@
       </div>
       <div>
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            <%= form.submit "Sign up", class:"btn btn-success" %>
+            <%= form.submit(@account.new_record? ? 'Create account.' : 'Update account.', class: 'btn btn-success') %>
       </div>
   <% end %>
 </div>

@@ -29,6 +29,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update(user_params)
+      redirect_to @user, notice: 'Profile successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -36,7 +41,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :genre, :location, :date_birth)
+      params.require(:user).permit(:first_name, :last_name, :genre, :location, :date_birth, :avatar)
     end
 
     def find_user

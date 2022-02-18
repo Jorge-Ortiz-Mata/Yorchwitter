@@ -14,9 +14,9 @@
                     @ <%= @current_account.user.first_name %> <%= @current_account.user.last_name %>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Profile</a>
+                        <%= link_to 'Profile', user_path(@current_account), class:"dropdown-item" %>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Account</a>
+                        <%= link_to 'Account', account_path(@current_account), class:"dropdown-item" %>
                     </div>
                 </li>
             </ul>

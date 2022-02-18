@@ -1,2 +1,8 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>User profile.</h1>
+<%= @user.first_name %>
+<%= @user.last_name %><br>
+<%= @user.location %><br>
+<%= @user.genre %><br>
+<%= @user.date_birth %><br>
+<%= image_tag @user.avatar,  class:'imageUser' if @user.avatar.attached? %><br>
+<%= link_to 'Edit profile', edit_user_path(@user), class:'btn btn-success' %>

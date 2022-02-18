@@ -28,3 +28,10 @@
 .formCreateProfile{
     padding: 10px;
 }
+
+.imageUser{
+    width: 90px;
+    height: 80px;
+    border-radius: 200px;
+    zoom: 150%;
+}

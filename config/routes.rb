@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :accounts, except: [:show]
+  resources :accounts
   get 'signup', to: 'accounts#new'
   post 'signup', to: 'accounts#create'
 
