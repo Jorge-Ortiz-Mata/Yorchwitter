@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'posts/new'
+  get 'posts/edit'
+  get 'posts/show'
 
   root 'pages#home'
 
