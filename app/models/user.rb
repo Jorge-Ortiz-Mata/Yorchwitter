@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_one_attached :avatar
   belongs_to :account
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end

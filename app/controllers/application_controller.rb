@@ -33,4 +33,10 @@ class ApplicationController < ActionController::Base
             redirect_to root_path, alert: "This account doesn't belong to you."
         end
     end
+
+    def comment_belongs_to_current_account
+        if current_account != @comment.user
+            redirect_to root_path, alert: "This account doesn't belong to you."
+        end
+    end
 end
