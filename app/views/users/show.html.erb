@@ -1,9 +1,15 @@
-
 <div class="jumbotron">
     <h2 class="display-4">
         <%= image_tag @user.avatar, class:'imageUser' if @user.avatar.attached? %> <%= @user.first_name %> <%= @user.last_name %>
     </h2>
-    <p class="lead"><small><b>Followers: <%= 2 %> Posts: <%= @user.posts.count %></b></small></p>
+    <p class="lead">
+        <small>
+            <b>
+                Following: <%= 0 %> Followers: <%= 0 %><br>
+                Posts: <%= @user.posts.count %>
+            </b>
+        </small>
+    </p>
     <% if @current_account.id == @user.id %>
         <p class="lead">
             <%= link_to 'Edit profile', edit_user_path(@user), class:'btn btn-success' %>
@@ -46,6 +52,7 @@
                     <%= image_tag post.images[i], class:"postImage" %>
                 <% end %>
             </div>
+            <%= render 'comments/form', obj: post %>
         </div>
     </div>
     <br>

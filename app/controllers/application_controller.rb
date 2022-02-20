@@ -35,8 +35,9 @@ class ApplicationController < ActionController::Base
     end
 
     def comment_belongs_to_current_account
-        if current_account != @comment.user
-            redirect_to root_path, alert: "This account doesn't belong to you."
+        @comment = @post.comments.find(params[:id])
+        if current_account.user != @comment.user
+            redirect_to root_path, alert: "This comment doesn't belong to you."
         end
     end
 end

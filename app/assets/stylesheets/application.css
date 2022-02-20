@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ .mainClass{
+     padding: 10px;
+ }
+ 
 .alertMessage, .noticeMessage{
     position: relative;
     z-index: 10;

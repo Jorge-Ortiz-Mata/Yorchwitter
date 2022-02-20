@@ -1,45 +1,33 @@
 class CommentsController < ApplicationController
 
   before_action :require_account
-  before_action :locate_comment, except: [:new, :create]
-  # before_action :user_belongs_to_current_account, only: [:edit, :update, :destroy]
-
-  def new
-      @comment = Comment.new
-  end
+  before_action :locate_post, only: [:create, :destroy]
+  before_action :comment_belongs_to_current_account, only: [:destroy]
 
   def create
-      @comment = Comment.new(comment_params)
-      @comment = session[:user_id]
+      @post = Post.find(params[:post_id])
+      @comment = @post.comments.create(comment_params)
+      @comment.user_id = session[:user_id]
+      @comment.post_id = @post.id
       if @comment.save
-        redirect_to root_path, notice: "Comment created."
-      else
-        render :new, status: :unprocessable_entity
+        redirect_to root_path
       end
   end
 
-  def edit
-  end
-
-  def update
-    if @comment.update(comment_params)
-      redirect_to root_path, notice: "Comment updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
   def destroy
-    redirect_to root_path, status: :see_other, alert: "Comment deleted."
-    @comment.destroy
+      @post = Post.find(params[:post_id])
+      @comment = @post.comments.find(params[:id])
+      @comment.destroy
+      redirect_to root_path, status: 303
   end
 
   private
 
-    def locate_comment
+    def locate_post
+      @post = Post.find(params[:post_id])
     end
 
     def comment_params
-    end
- 
+      params.require(:comment).permit(:commenter)
+    end 
 end
