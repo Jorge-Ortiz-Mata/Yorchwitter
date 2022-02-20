@@ -1,0 +1,9 @@
+<h2>Results.</h2>
+<% if !(@users_result.nil?) %>
+    <h3>
+        You searched for: <%= @result %>
+    </h3>
+    <%= render 'searches/result' %>
+<% else %>
+    Seems that there's nothing to look up.
+<% end %>

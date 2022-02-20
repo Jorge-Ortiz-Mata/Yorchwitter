@@ -1,0 +1,6 @@
+<%= form_with url: search_path, remote: true, method: :get do |f| %>
+    <div class="d-flex flex-row">
+        <%= f.text_field :result, class:"form-control me-2", autofocus: true, placeholder: "Search..." %>
+        <%= f.submit "Search", class:"btn btn-outline-success" %>
+    </div>
+<% end %>

@@ -1,0 +1,21 @@
+<div class="d-flex flex-column">
+<% @users_result.each do |user_result| %>
+    <br>
+    <div class="card mr-auto ml-auto w-75 ">
+        <div class="card-header d-flex justify-content-between">
+            <div>
+                <%= image_tag user_result.avatar, class:'imageUserComment' if user_result.avatar.attached? %>
+                <b>@<%= user_result.first_name %> <%= user_result.last_name %></b>
+            </div>
+            <div class="mt-auto mb-auto mr-1 ml-auto" >
+                <%= link_to 'Profile', user_path(user_result), class:"btn btn-success" %>
+            </div>
+        </div>
+        <div class="card-body">
+            <b>Email:</b> <%= user_result.account.email %><br>
+            <small><b>Joined:</b> <%= time_ago_in_words(user_result.created_at) %>.</small><br>
+        </div>
+    </div>
+    <br>
+<% end %>
+</div>

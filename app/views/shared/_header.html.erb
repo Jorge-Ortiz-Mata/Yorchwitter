@@ -2,10 +2,13 @@
     <div class="imageLogo">
     </div> 
     <%= link_to 'Yorchwitter', root_path, class:"navbar-brand" %>
+    <div class="ml-auto mr-auto">
+        <%= render 'searches/form' %>
+    </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <div class="form-inline my-2 my-lg-0">
             <% if !(logged_in?) %>
                 <div class="m-1"><%= link_to 'Sign in', signin_path, class:"btn btn-light" %></div>
                 <div class="m-1"><%= link_to 'Create account', signup_path, class:"btn btn-light" %></div>
@@ -22,8 +25,9 @@
                         <% end %>
                     </li>
                 </ul>
+                <%= link_to 'New post', new_post_path, class:'btn btn-success mr-2' %>
                 <%= link_to 'Sign out', signout_path, method: :delete, class:"btn btn-danger" %>
             <% end %>
-        </form>
+        </div>
     </div>
 </nav>

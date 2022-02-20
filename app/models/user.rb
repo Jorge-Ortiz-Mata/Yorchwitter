@@ -10,4 +10,18 @@ class User < ApplicationRecord
   belongs_to :account
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  def self.search_users(result)
+    @users_result_fn = where("first_name like ?", "%#{result}%")
+    if @users_result_fn.length > 0
+      return @users_result_fn
+    else
+      @users_result_ln = where("last_name like ?", "%#{result}%")
+      if @users_result_ln.length > 0
+        return @users_result_ln
+      else
+        return nil
+      end
+    end
+  end
 end
