@@ -1,5 +1,7 @@
 <br>
-<b>@<%= comment.user.first_name %> <%= comment.user.last_name %></b>. <%= comment.commenter %><br>
+<div>
+    <%= image_tag comment.user.avatar, class:'imageUserComment' if comment.user.avatar.attached? %><b>@<%= comment.user.first_name %> <%= comment.user.last_name %></b>. <%= comment.commenter %><br>
+</div>
 <small>
     Created: <%= time_ago_in_words(comment.created_at) %>
     <br>

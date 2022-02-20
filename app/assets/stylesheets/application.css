@@ -34,10 +34,17 @@
 }
 
 .imageUser{
-    width: 90px;
+    width: 65px;
     height: 80px;
     border-radius: 200px;
     zoom: 150%;
+}
+
+.imageUserComment{
+    width: 35px;
+    height: 40px;
+    border-radius: 200px;
+    margin: 10px;
 }
 
 .imageLogo{
