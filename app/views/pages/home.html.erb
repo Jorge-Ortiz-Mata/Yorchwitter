@@ -4,7 +4,7 @@
             <div class="card text-white bg-dark mb-3" style="max-width: 75rem; height: auto;">
                 <div class="card-header">
                     <div class="m-auto">
-                        <%= image_tag post.user.avatar, class:'imageUserComment' if post.user.avatar.attached? %><%= post.user.first_name %> <%= post.user.last_name %>
+                        <%= image_tag post.user.avatar, class:'imageUserComment' if post.user.avatar.attached? %><b>@<%= post.user.first_name %> <%= post.user.last_name %></b>
                     </div>
                 </div>
                 <div class="card-body">

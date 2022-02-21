@@ -7,6 +7,10 @@
             <b>
                 Following: <%= @following %> Followers: <%= @followers %><br> 
                 Posts: <%= @user.posts.count %><br>
+                <% if @current_account.user != @user %>
+                    <br>
+                    <%= link_to 'Follow', '#', class:'btn btn-success' %>
+                <% end %>
             </b>
         </small>
     </p>
