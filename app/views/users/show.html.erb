@@ -5,7 +5,7 @@
     <p class="lead">
         <small>
             <b>
-                Following: <%= @following %> Followers: <%= @followers %><br> 
+                Followers: <%= @following %> following: <%= @followers %><br> 
                 Posts: <%= @user.posts.count %><br><br>
                 <% if @current_account.user != @user %>
                     <% if !(Connection.check_db_connection(@current_account.id, @user.id).exists?) %>

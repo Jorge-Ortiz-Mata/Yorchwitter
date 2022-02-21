@@ -1,9 +1,5 @@
-<h2>Results.</h2>
 
 <% if !(@result.present?) %>
-    <div class="alert alert-success" role="alert">
-        Display <b>all users.</b>
-    </div>
     <%= render 'searches/result' %>
 <% elsif !(@users_result.nil?) %>
     <div class="alert alert-success" role="alert">
