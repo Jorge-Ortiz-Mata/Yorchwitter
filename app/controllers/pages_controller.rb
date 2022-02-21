@@ -10,6 +10,8 @@ class PagesController < ApplicationController
         @result = params[:result]
         if @result.present?
             @users_result = User.search_users(@result)
+        else 
+            @users_result = User.all
         end
     end
 end

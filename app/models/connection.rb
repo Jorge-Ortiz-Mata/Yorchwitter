@@ -9,5 +9,9 @@ class Connection < ApplicationRecord
   def self.following(following)
     where(follower_id: following).count
   end
+
+  def self.check_db_connection(user, follower)
+    where(user_id: user, follower_id: follower)
+  end
   
 end

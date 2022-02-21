@@ -17,5 +17,9 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
-
+  
+  #resources :connections
+  get 'create/connection', to: 'connections#create'
+  get 'connection', to: 'connections#destroy'
+  
 end

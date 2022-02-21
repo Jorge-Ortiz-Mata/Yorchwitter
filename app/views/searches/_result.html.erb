@@ -9,7 +9,11 @@
             </div>
             <div class="mt-auto mb-auto mr-1 ml-auto" >
                 <% if @current_account.user != user_result %>
-                    <%= link_to 'Follow', '#', class:'btn btn-success' %>
+                    <% if !(Connection.check_db_connection(@current_account.id, user_result.id).exists?) %>
+                        <%= link_to 'Follow', create_connection_path(user: @current_account, follower: user_result.id), method: :post, class:'btn btn-success' %>
+                    <% else %>
+                        <%= link_to 'Unfollow', connection_path(user: @current_account, follower: user_result.id), method: :delete, class:'btn btn-danger' %>
+                    <% end %>
                 <% end %>
                 <%= link_to 'Profile', user_path(user_result), class:"btn btn-primary" %>
             </div>

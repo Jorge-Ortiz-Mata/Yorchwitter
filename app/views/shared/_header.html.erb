@@ -10,8 +10,8 @@
         </ul>
         <div class="form-inline my-2 my-lg-0">
             <% if !(logged_in?) %>
-                <div class="m-1"><%= link_to 'Sign in', signin_path, class:"btn btn-light" %></div>
-                <div class="m-1"><%= link_to 'Create account', signup_path, class:"btn btn-light" %></div>
+                <div class="m-1"><%= link_to 'Sign in', signin_path, class:"btn btn-primary" %></div>
+                <div class="m-1"><%= link_to 'Create account', signup_path, class:"btn btn-success" %></div>
             <% else %>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">

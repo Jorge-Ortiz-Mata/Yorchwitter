@@ -6,11 +6,12 @@
         <%= f.label "Body: " %>
         <%= f.text_area :body, class:"form-control", placeholder: "smith@example.com" %>
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group">
         <%= f.label 'Images: ' %>
         <%= f.file_field :images, multiple: true, class:"form-control" %>
     </div>
     <div>
         <%= f.submit(@post.new_record? ? 'Create post.' : 'Update post.', class: 'btn btn-success') %>
     </div>
-<% end %>
+<% end %><br>
+<%= link_to 'Back', root_path, class:"btn btn-secondary" %>

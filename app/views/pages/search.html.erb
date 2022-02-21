@@ -1,11 +1,13 @@
 <h2>Results.</h2>
-<% if !(@users_result.nil?) %>
+
+<% if !(@result.present?) %>
+    <div class="alert alert-success" role="alert">
+        Display <b>all users.</b>
+    </div>
+    <%= render 'searches/result' %>
+<% elsif !(@users_result.nil?) %>
     <div class="alert alert-success" role="alert">
         You searched for: <b><%= @result %></b>
     </div>
     <%= render 'searches/result' %>
-<% else %>
-    <div class="alert alert-danger" role="alert">
-        <b>Ohps!</b> Seems that there was an error. Please, try again.
-    </div>
 <% end %>

@@ -6,10 +6,13 @@
         <small>
             <b>
                 Following: <%= @following %> Followers: <%= @followers %><br> 
-                Posts: <%= @user.posts.count %><br>
+                Posts: <%= @user.posts.count %><br><br>
                 <% if @current_account.user != @user %>
-                    <br>
-                    <%= link_to 'Follow', '#', class:'btn btn-success' %>
+                    <% if !(Connection.check_db_connection(@current_account.id, @user.id).exists?) %>
+                        <%= link_to 'Follow', create_connection_path(user: @current_account, follower: @user.id), method: :post, class:'btn btn-success' %>
+                    <% else %>
+                        <%= link_to 'Unfollow', connection_path(user: @current_account, follower: @user.id), method: :delete, class:'btn btn-danger' %>
+                    <% end %>
                 <% end %>
             </b>
         </small>
