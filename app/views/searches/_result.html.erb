@@ -1,7 +1,7 @@
 <div class="d-flex flex-column">
 <% @users_result.each do |user_result| %>
     <br>
-    <div class="card mr-auto ml-auto w-75 ">
+    <div class="card mr-auto ml-auto w-75 bg-dark text-white">
         <div class="card-header d-flex justify-content-between">
             <div>
                 <%= image_tag user_result.avatar, class:'imageUserComment' if user_result.avatar.attached? %>

@@ -38,6 +38,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @followers = Connection.followers(@user.id)
+    @following = Connection.following(@user.id)
   end
 
   private

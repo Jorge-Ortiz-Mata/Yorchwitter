@@ -1,9 +1,11 @@
 <h2>Results.</h2>
 <% if !(@users_result.nil?) %>
-    <h3>
-        You searched for: <%= @result %>
-    </h3>
+    <div class="alert alert-success" role="alert">
+        You searched for: <b><%= @result %></b>
+    </div>
     <%= render 'searches/result' %>
 <% else %>
-    Seems that there's nothing to look up.
+    <div class="alert alert-danger" role="alert">
+        <b>Ohps!</b> Seems that there was an error. Please, try again.
+    </div>
 <% end %>

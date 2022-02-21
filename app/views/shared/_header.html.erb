@@ -2,9 +2,9 @@
     <div class="imageLogo">
     </div> 
     <%= link_to 'Yorchwitter', root_path, class:"navbar-brand" %>
-    <div class="ml-auto mr-auto">
-        <%= render 'searches/form' %>
-    </div>
+        <div class="ml-auto mr-auto">
+            <%= render 'searches/form' %>
+        </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         </ul>
@@ -22,11 +22,11 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <%= link_to 'Profile settings', user_path(@current_account), class:"dropdown-item" %>
                             </div>
-                        <% end %>
                     </li>
                 </ul>
                 <%= link_to 'New post', new_post_path, class:'btn btn-success mr-2' %>
                 <%= link_to 'Sign out', signout_path, method: :delete, class:"btn btn-danger" %>
+                <% end %>
             <% end %>
         </div>
     </div>
