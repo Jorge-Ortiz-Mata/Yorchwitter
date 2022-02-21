@@ -1,12 +1,24 @@
 <div class="jumbotron">
-    <h2 class="display-4">
-        <%= image_tag @user.avatar, class:'imageUser' if @user.avatar.attached? %> <%= @user.first_name %> <%= @user.last_name %>
+    <h2 class="display-5 d-flex flex-row">
+        <div class="mb-auto mt-auto">
+            <%= image_tag @user.avatar, class:'imageUser' if @user.avatar.attached? %>
+        </div>
+        <div class="p-3 d-flex flex-column">
+            <div>
+                <b><%= @user.first_name %> <%= @user.last_name %></b>
+            </div>
+            <div>
+                <small style="font-size: 15px;">
+                    <span class="badge bg-light text-dark">Followers: <%= @following %></span>
+                    <span class="badge bg-light text-dark">Following: <%= @followers %></span><br>
+                </small>
+            </div>
+        </div>
     </h2>
     <p class="lead">
         <small>
             <b>
-                Followers: <%= @following %> following: <%= @followers %><br> 
-                Posts: <%= @user.posts.count %><br><br>
+                <span class="badge bg-info text-dark">Posts: <%= @user.posts.count %></span><br>
                 <% if @current_account.user != @user %>
                     <% if !(Connection.check_db_connection(@current_account.id, @user.id).exists?) %>
                         <%= link_to 'Follow', create_connection_path(user: @current_account, follower: @user.id), method: :post, class:'btn btn-success' %>
