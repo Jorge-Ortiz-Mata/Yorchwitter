@@ -18,7 +18,7 @@
     <p class="lead">
         <small>
             <b>
-                <span class="badge bg-info text-dark">Posts: <%= @user.posts.count %></span><br>
+                <span class="badge bg-info text-dark">Posts: <%= @user.posts.count %></span><br><br>
                 <% if @current_account.user != @user %>
                     <% if !(Connection.check_db_connection(@current_account.id, @user.id).exists?) %>
                         <%= link_to 'Follow', create_connection_path(user: @current_account, follower: @user.id), method: :post, class:'btn btn-success' %>

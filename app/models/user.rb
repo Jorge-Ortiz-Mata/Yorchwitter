@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :connections, dependent: :destroy
   has_many :followers, through: :connections
+  has_many :likes, dependent: :destroy
+
 
   def self.search_users(result)
     @users_result_fn = where("first_name like ?", "%#{result}%")
