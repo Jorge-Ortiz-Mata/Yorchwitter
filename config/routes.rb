@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :comments
   end
   
+  get 'new/like', to: 'likes#create'
+  get 'like', to: 'likes#destroy'
   #resources :connections
   get 'create/connection', to: 'connections#create'
   get 'connection', to: 'connections#destroy'

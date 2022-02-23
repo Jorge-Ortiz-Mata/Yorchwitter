@@ -1,3 +1,7 @@
-<h1>Edit Profile</h1>
-<%= render 'users/form' %>
-<%= link_to 'Back', user_path(@current_account), class:"btn btn-secondary" %>
+<div style="padding: 100px;">
+    <h1>Edit Profile</h1>
+    <%= render 'users/form' %><br>
+    <div class= "ml-2 mr-auto">
+        <%= link_to 'Back', user_path(@current_account), class:"btn btn-secondary" %>
+    </div>
+</div>

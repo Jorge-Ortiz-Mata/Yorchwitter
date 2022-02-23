@@ -1,12 +1,16 @@
 <br>
-<div>
-    <%= image_tag comment.user.avatar, class:'imageUserComment' if comment.user.avatar.attached? %><b>@<%= comment.user.first_name %> <%= comment.user.last_name %></b>. <%= comment.commenter %><br>
-</div>
-<small>
-    Created: <%= time_ago_in_words(comment.created_at) %>
-    <br>
-    <% if @current_account.user == comment.user %>
-        <%= link_to 'Delete', [comment.post, comment], data: { 'turbo_method': :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-    <% end %>
-</small>
+
+    <div class="d-flex flex-row">
+        <div class="mt-auto mb-auto ml-0 mr-2">
+            <%= image_tag comment.user.avatar, class:'imageUserComment' if comment.user.avatar.attached? %>
+        </div>
+        <div class="mt-auto mb-auto">
+            <b>@<%= comment.user.first_name %> <%= comment.user.last_name %></b>. <%= comment.commenter %><br>
+            <% if @current_account.user == comment.user %>
+                <span class="colorRed"><i class="fas fa-trash-alt"> <%= link_to 'Delete', [comment.post, comment], data: { 'turbo_method': :delete, turbo_confirm: 'Are you sure?' }, class: 'deleteCommentButton' %> </i></span>
+            <% end %>
+        </div>
+    </div>
+
+<small>Created: <%= time_ago_in_words(comment.created_at) %></small>
 <br>

@@ -44,7 +44,14 @@
     width: 35px;
     height: 40px;
     border-radius: 200px;
-    margin: 10px;
+    margin: 5px;
+}
+
+.imageUserSideBar{
+    width: 35px;
+    height: 40px;
+    border-radius: 200px;
+    margin: auto auto 10px auto;
 }
 
 .imageLogo{
@@ -66,4 +73,32 @@
     width: 100px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.likesButton, .likesButton:hover{
+    color: #ffffff;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+}
+
+.deleteCommentButton, .deleteCommentButton:hover{
+    color: #ffbdbd;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+}
+
+.colorRed i{
+    color: #ffbdbd;
+    padding: 1px auto 5px 1px;
+}
+
+.sideBar{
+    background-color: #c1e7db;
+    margin: 0px auto auto 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10px;
 }

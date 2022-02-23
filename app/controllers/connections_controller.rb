@@ -1,5 +1,7 @@
 class ConnectionsController < ApplicationController
 
+    before_action :require_account
+
     def create
         Connection.create(user_id: params[:user], follower_id: params[:follower])
         redirect_to search_path

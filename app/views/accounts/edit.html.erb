@@ -1,5 +1,6 @@
-<h1>Edit account</h1>
-<%= render 'accounts/form' %>
-<%= link_to 'Cancel account', account_path(@current_account), data: { turbo_method: :delete, turbo_confirm: 'Delete this account?' }, class:"btn btn-danger" %><br><br>
-
-<%= link_to 'Back', user_path(@current_account), class: "btn btn-secondary" %>
+<div style="padding: 100px;">
+    <h1>Edit account</h1>
+    <%= render 'accounts/form' %>
+    <%= link_to 'Cancel account', account_path(@current_account), data: { turbo_method: :delete, turbo_confirm: 'Delete this account?' }, class:"btn btn-danger" %><br><br>
+    <%= link_to 'Back', user_path(@current_account), class: "btn btn-secondary" %>
+</div>

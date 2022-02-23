@@ -4,5 +4,6 @@ class Account < ApplicationRecord
     validates :password_confirmation, presence: true, length: { minimum: 6 }
     has_secure_password
     has_one :user, dependent: :destroy
+    has_many :likes, dependent: :destroy
     
 end
