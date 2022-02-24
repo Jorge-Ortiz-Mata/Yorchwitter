@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :account_id, presence: true
   validates :avatar, presence: true
   has_one_attached :avatar, dependent: :destroy
-  belongs_to :account
+  belongs_to :account, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :connections, dependent: :destroy

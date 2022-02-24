@@ -1,6 +1,6 @@
 class Connection < ApplicationRecord
-  belongs_to :user
-  belongs_to :follower, class_name: 'User'
+  belongs_to :user , dependent: :destroy
+  belongs_to :follower, class_name: 'User', dependent: :destroy
 
   def self.followers(followers)
     where(user_id: followers).count

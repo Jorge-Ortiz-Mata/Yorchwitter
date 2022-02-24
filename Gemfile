@@ -26,6 +26,7 @@ gem 'devise-bootstrap-views'
 gem 'iex-ruby-client'
 gem 'font-awesome-rails'
 gem 'semantic-ui-sass'
+gem 'carrierwave'
 
 
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]

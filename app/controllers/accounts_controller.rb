@@ -30,9 +30,10 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    #@account.user.avatar.purge
     @account.destroy
-    redirect_to root_path, status: :see_other, alert: 'Account deleted.'
+    #session[:user_id] = nil
+    redirect_to root_path, status: :see_other, alert: "Account deleted."
   end
 
   private 
